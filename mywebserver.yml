@@ -1,0 +1,9 @@
+---
+ - hosta: localhost
+   become: yes
+   tasks: 
+   - name: install webservar
+     apt:
+      name: apache2
+      state: present
+

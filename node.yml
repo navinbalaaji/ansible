@@ -1,0 +1,17 @@
+---
+ - hosts: localhost
+   become: yes
+   tasks:
+   - name: creat instances
+     ec2:
+       key_name: oregon
+       instance_type: t2.micro
+       image: ami-0881cdf4b848881d7
+       wait: yes
+       region: us-west-2
+       group: myscg
+       count: 3
+       vpc_subnet_id: subnet-0fbc9844
+       assign_public_ip: yes
+       instance_tags: 
+         name: ansibleubuntunodeami
